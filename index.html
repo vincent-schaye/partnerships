@@ -1,605 +1,137 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LX Launch — Partnership Proposal | AgriTech Innovation Hub Fundão</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --teal:       #0b6476;
-      --teal-dark:  #084a58;
-      --teal-light: #e5f3f6;
-      --teal-mid:   #0d8da0;
-      --dark:       #231f20;
-      --gray:       #555;
-      --light:      #f7f9fa;
-      --white:      #fff;
-      --border:     #d8e8ec;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      color: var(--dark);
-      background: var(--white);
-      font-size: 14px;
-      line-height: 1.6;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    a { color: var(--teal); text-decoration: none; border-bottom: 1px solid var(--border); }
-    a:hover { color: var(--teal-mid); border-color: var(--teal-mid); }
-
-    /* ── HEADER ── */
-    .header {
-      background: var(--teal);
-      padding: 22px 36px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-    .header-logo { flex: 0 0 auto; }
-    .header-logo svg { height: 38px; width: auto; display: block; }
-    .header-logo svg path, .header-logo svg rect { fill: white !important; }
-    .header-contact {
-      text-align: right;
-      color: rgba(255,255,255,0.88);
-      font-size: 11.5px;
-      line-height: 1.8;
-    }
-    .header-contact a { color: rgba(255,255,255,0.88); border-bottom-color: rgba(255,255,255,0.3); }
-    .header-contact a:hover { color: white; }
-
-    /* ── HERO BAND ── */
-    .hero {
-      background: var(--teal-dark);
-      padding: 16px 36px;
-      color: white;
-    }
-    .hero-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1.8px;
-      opacity: 0.7;
-      margin-bottom: 4px;
-    }
-    .hero-title {
-      font-size: 19px;
-      font-weight: 700;
-      letter-spacing: -0.2px;
-    }
-    .hero-sub {
-      font-size: 12.5px;
-      opacity: 0.82;
-      margin-top: 3px;
-    }
-
-    /* ── MAIN CONTENT ── */
-    .content { padding: 36px 36px 0; }
-
-    /* ── SECTION HEADER ── */
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 16px;
-      margin-top: 32px;
-    }
-    .section-title:first-child { margin-top: 0; }
-    .section-title::before {
-      content: '';
-      display: block;
-      width: 3px;
-      height: 18px;
-      background: var(--teal);
-      border-radius: 2px;
-      flex-shrink: 0;
-    }
-    .section-title h2 {
-      font-size: 10.5px;
-      text-transform: uppercase;
-      letter-spacing: 1.6px;
-      color: var(--teal-dark);
-      font-weight: 700;
-    }
-    .section-title::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* ── INTRO / WHY VINCENT ── */
-    .intro-box {
-      background: var(--teal-light);
-      border-left: 3px solid var(--teal);
-      border-radius: 0 6px 6px 0;
-      padding: 18px 22px;
-      margin-bottom: 8px;
-      font-size: 13.5px;
-      color: var(--dark);
-      line-height: 1.7;
-    }
-    .intro-box strong { color: var(--teal-dark); }
-
-    /* ── ABOUT VINCENT ── */
-    .profile-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px 28px;
-    }
-    .profile-name {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 2px;
-    }
-    .profile-role {
-      font-size: 11.5px;
-      color: var(--teal);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      margin-bottom: 10px;
-    }
-    .profile-bio {
-      font-size: 12.5px;
-      color: var(--gray);
-      line-height: 1.65;
-      grid-column: 1 / -1;
-      margin-bottom: 4px;
-    }
-
-    /* ── CAREER ITEMS ── */
-    .career-item {
-      padding: 13px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .career-item:last-child { border-bottom: none; }
-    .career-header {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      margin-bottom: 4px;
-      flex-wrap: wrap;
-    }
-    .career-dot {
-      width: 7px; height: 7px;
-      background: var(--teal);
-      border-radius: 50%;
-      flex-shrink: 0;
-      margin-top: 5px;
-    }
-    .career-org {
-      font-weight: 700;
-      font-size: 13px;
-      color: var(--dark);
-    }
-    .career-org a {
-      color: var(--dark);
-      border-bottom-color: var(--border);
-    }
-    .career-role {
-      font-size: 11px;
-      color: var(--teal);
-      background: var(--teal-light);
-      padding: 1px 7px;
-      border-radius: 10px;
-      white-space: nowrap;
-      border-bottom: none !important;
-    }
-    .career-desc {
-      font-size: 12px;
-      color: var(--gray);
-      line-height: 1.6;
-      padding-left: 15px;
-    }
-
-    /* ── CREDENTIALS ── */
-    .cred-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-top: 4px;
-    }
-    .cred-badge {
-      background: var(--teal-light);
-      border-radius: 6px;
-      padding: 10px 14px;
-      border-left: 3px solid var(--teal);
-    }
-    .cred-label {
-      font-size: 11.5px;
-      font-weight: 700;
-      color: var(--teal-dark);
-      margin-bottom: 2px;
-    }
-    .cred-detail {
-      font-size: 11px;
-      color: var(--gray);
-    }
-
-    /* ── SERVICES ── */
-    .services-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    .service-card {
-      background: var(--light);
-      border-radius: 7px;
-      padding: 15px 17px;
-      border-top: 3px solid var(--teal);
-    }
-    .service-card h3 {
-      font-size: 12.5px;
-      font-weight: 700;
-      color: var(--teal-dark);
-      margin-bottom: 6px;
-    }
-    .service-card p {
-      font-size: 11.5px;
-      color: var(--gray);
-      line-height: 1.6;
-    }
-
-    /* ── ADVISORY BOARD ── */
-    .advisory-box {
-      background: var(--teal);
-      border-radius: 8px;
-      padding: 22px 26px;
-      color: white;
-      margin-top: 8px;
-    }
-    .advisory-box h3 {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .advisory-box h3::before {
-      content: '';
-      display: inline-block;
-      width: 8px; height: 8px;
-      background: rgba(255,255,255,0.5);
-      border-radius: 50%;
-    }
-    .advisory-box p {
-      font-size: 12px;
-      opacity: 0.88;
-      line-height: 1.65;
-    }
-    .advisory-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 12px;
-    }
-    .advisory-tag {
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 20px;
-      padding: 3px 11px;
-      font-size: 11px;
-      color: white;
-      opacity: 0.9;
-    }
-
-    /* ── FOOTER ── */
-    .footer {
-      background: var(--teal-dark);
-      color: rgba(255,255,255,0.75);
-      text-align: center;
-      padding: 14px 36px;
-      font-size: 11px;
-      margin-top: 36px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .footer a { color: rgba(255,255,255,0.75); border-bottom-color: rgba(255,255,255,0.2); }
-    .footer-cta {
-      background: white;
-      color: var(--teal-dark) !important;
-      padding: 7px 18px;
-      border-radius: 20px;
-      font-weight: 700;
-      font-size: 11.5px;
-      border: none !important;
-    }
-    .footer-cta:hover { background: var(--teal-light); }
-
-    .section-spacer { height: 28px; }
-
-    @media (max-width: 620px) {
-      .header { flex-direction: column; align-items: flex-start; }
-      .header-contact { text-align: left; }
-      .services-grid, .cred-grid, .profile-grid { grid-template-columns: 1fr; }
-      .profile-bio { grid-column: 1; }
-      .content { padding: 24px 20px 0; }
-    }
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 20.0px 0.0px; text-align: center; font: 13.0px 'Helvetica Neue'; color: #434343; -webkit-text-stroke: #434343}
+    p.p2 {margin: 0.0px 0.0px 8.0px 0.0px; text-align: center; font: 11.5px 'Helvetica Neue'; color: #b02621; -webkit-text-stroke: #b02621; min-height: 13.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 14.0px '.SF NS'; color: #ffffff; -webkit-text-stroke: #ffffff; background-color: #0f5163}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #1a1718; -webkit-text-stroke: #1a1718; min-height: 17.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; font: 11.5px 'Helvetica Neue'; color: #ffffff; color: rgba(255, 255, 255, 0.88); -webkit-text-stroke: rgba(255, 255, 255, 0.88)}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 19.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.5px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff}
+    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.5px 'Helvetica Neue'; color: #1a1718; -webkit-text-stroke: #1a1718; background-color: #dff0f4}
+    p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; font: 17.0px 'Helvetica Neue'; color: #1a1718; -webkit-text-stroke: #1a1718}
+    p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.5px '.SF NS'; color: #0f5163; -webkit-text-stroke: #0f5163}
+    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.5px 'Helvetica Neue'; color: #0f5163; -webkit-text-stroke: #0f5163; min-height: 13.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.5px 'Helvetica Neue'; color: #0f5163; -webkit-text-stroke: #0f5163}
+    p.p15 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.5px 'Helvetica Neue'; color: #434343; -webkit-text-stroke: #434343}
+    p.p16 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.5px 'Helvetica Neue'; color: #0f5163; -webkit-text-stroke: #0f5163}
+    p.p17 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #1a1718; -webkit-text-stroke: #1a1718; background-color: #0f5163; min-height: 17.0px}
+    p.p18 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; color: #1a1718; -webkit-text-stroke: #1a1718}
+    p.p19 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #0f5163; -webkit-text-stroke: #0f5163; background-color: #dff0f4}
+    p.p20 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #434343; -webkit-text-stroke: #434343}
+    p.p21 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.5px 'Helvetica Neue'; color: #0c3a46; -webkit-text-stroke: #0c3a46}
+    p.p22 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #434343; -webkit-text-stroke: #434343}
+    p.p24 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.5px 'Helvetica Neue'; color: #434343; -webkit-text-stroke: #434343}
+    p.p25 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff}
+    p.p26 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff}
+    p.p27 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff; background-color: #ffffff; background-color: rgba(255, 255, 255, 0.15)}
+    p.p28 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px '.SF NS'; color: #ffffff; color: rgba(255, 255, 255, 0.9); -webkit-text-stroke: rgba(255, 255, 255, 0.9)}
+    p.p29 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 11.0px 'Helvetica Neue'; color: #ffffff; color: rgba(255, 255, 255, 0.75); -webkit-text-stroke: rgba(255, 255, 255, 0.75)}
+    p.p30 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 11.5px 'Helvetica Neue'; color: #0c3a46; -webkit-text-stroke: #0c3a46; background-color: #ffffff}
+    span.s1 {font-kerning: none; background-color: #ffffff}
+    span.s2 {font-kerning: none}
+    span.s3 {font-kerning: none; background-color: #0f5163}
+    span.s4 {font-kerning: none; background-color: #0c3a46}
+    span.s5 {font-kerning: none; color: #0c3a46; -webkit-text-stroke: 0px #0c3a46}
+    span.s6 {font: 13.5px '.SF NS'; font-kerning: none; color: #0c3a46; -webkit-text-stroke: 0px #0c3a46}
+    span.s7 {font: 11.5px 'Helvetica Neue'; font-kerning: none; color: #0f5163; -webkit-text-stroke: 0px #0f5163}
+    span.s8 {font-kerning: none; color: #1a1718; -webkit-text-stroke: 0px #1a1718}
+    span.s9 {font-kerning: none; background-color: #dff0f4}
+    span.s10 {font-kerning: none; background-color: #f5f7f9}
+    span.s11 {font: 11.0px 'Helvetica Neue'; font-kerning: none; color: #ffffff; background-color: #0f5163; -webkit-text-stroke: 0px #ffffff}
+    span.s12 {font: 11.0px '.SF NS'; font-kerning: none; color: rgba(255, 255, 255, 0.9); -webkit-text-stroke: 0px rgba(255, 255, 255, 0.9)}
+    span.s13 {font: 11.0px 'Helvetica Neue'; font-kerning: none; color: rgba(255, 255, 255, 0.75); -webkit-text-stroke: 0px rgba(255, 255, 255, 0.75)}
+    span.s14 {font: 11.5px 'Helvetica Neue'; font-kerning: none; color: #0c3a46; -webkit-text-stroke: 0px #0c3a46}
   </style>
 </head>
 <body>
-
-<!-- ── PASSWORD GATE ── -->
-<div id="gate" style="position:fixed;inset:0;background:var(--teal-dark);display:flex;align-items:center;justify-content:center;z-index:9999;">
-  <div style="background:white;border-radius:12px;padding:40px 44px;max-width:360px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.3);">
-    <svg viewBox="0 0 941 257.86" xmlns="http://www.w3.org/2000/svg" style="height:32px;width:auto;margin-bottom:20px;">
-      <g fill="#0b6476">
-        <path d="M6.2,0C2.78,0,0,2.78,0,6.2v189.78c0,33.91,27.59,61.5,61.5,61.5h69.43c2.13,0,4.09-1.08,5.24-2.88l28.78-45.63c1.23-1.94.82-4.3-.29-6.31-1.11-2.01-2.65-3.21-4.95-3.21h-69.14c-17.94,0-32.53-14.59-32.53-32.53V6.2C58.04,2.78,55.25,0,51.83,0H6.2Z"/>
-        <path d="M206.88,113.64c-2.41,4.82-4.12,9.91-3.97,14.95.14,4.7,1.69,9.86,3.9,14.01l70.83,112.57c1.17,1.45,2.96,2.31,4.83,2.31h55.93c2.33,0,5.21-1.65,6.12-3.79.89-2.09.55-4.38-.85-6.2l-62.49-99.42c-3.69-6.05-9.22-12.76-9.22-19.33s5.16-13.53,8.98-19.57l62.42-99.18c1.23-1.77,2.02-4.07,1.21-6.06C343.6,1.48,341.4,0,338.82,0h-56.94c-1.87,0-3.66.86-4.83,2.31l-70.17,111.33Z"/>
-        <path d="M112.56,0c-2.81,0-5.55,1.67-6.97,4.27-.53.96-1.6,3.44-.13,5.75,0,0,55.3,87.9,55.3,87.9,1.11,1.79,3.58,1.8,5.29,1.26,1.8-.57,2.74-2.16,3.65-3.74l13.03-20.67c14.01-22.15,14.08-34.48,6.5-46.5l-16.41-26.05c-.88-1.37-2.46-2.2-4.33-2.2,0,0-55.93-.02-55.94-.02Z"/>
-        <path d="M436.69,110.53c-4.65-2.32-8.13-6.02-10.45-11.08-2.32-5.07-3.48-11.61-3.48-19.63V3.29c0-1.81,1.47-3.28,3.28-3.28h22.72c1.81,0,3.28,1.47,3.28,3.28v76.68c0,2.11.26,3.8.79,5.07.53,1.27,1.42,2.19,2.69,2.77,1.27.58,3.01.87,5.23.87h5.11c1.81,0,3.28,1.47,3.28,3.28v18.77c0,1.81-1.47,3.28-3.28,3.28h-11.6c-7.07,0-12.93-1.16-17.58-3.48Z"/>
-        <path d="M519.68,86.83l-11.48,24.5c-.54,1.15-1.7,1.89-2.97,1.89h-22.51c-2.45,0-4.03-2.58-2.93-4.76l17.76-35.25c.47-.93.47-2.02,0-2.95l-16.52-33.04c-1.09-2.18.5-4.75,2.94-4.75h22.53c1.27,0,2.43.74,2.97,1.89l10.21,21.81c1.18,2.53,4.78,2.52,5.95-.01l10.09-21.78c.54-1.16,1.7-1.9,2.98-1.9h22.64c2.45,0,4.04,2.59,2.93,4.77l-16.77,33.01c-.48.94-.47,2.05,0,2.98l18.01,35.22c1.12,2.18-.47,4.78-2.92,4.78h-22.62c-1.28,0-2.44-.74-2.98-1.9l-11.36-24.48c-1.17-2.53-4.77-2.54-5.95-.01Z"/>
-        <path d="M436.69,253.58c-4.65-2.32-8.13-6.02-10.45-11.08-2.32-5.07-3.48-11.61-3.48-19.64v-76.52c0-1.81,1.47-3.28,3.28-3.28h22.72c1.81,0,3.28,1.47,3.28,3.28v76.68c0,2.11.26,3.8.79,5.07.53,1.27,1.42,2.19,2.69,2.77,1.27.58,3.01.87,5.23.87h5.11c1.81,0,3.28,1.47,3.28,3.28v18.77c0,1.81-1.47,3.28-3.28,3.28h-11.6c-7.07,0-12.93-1.16-17.58-3.48Z"/>
-        <path d="M633.43,175.51c-1.81,0-3.28,1.47-3.28,3.28v39.95c0,4.96-.9,8.5-2.69,10.61-1.79,2.11-4.38,3.17-7.76,3.17-2.21,0-4.09-.45-5.62-1.34-1.53-.9-2.72-2.35-3.56-4.36-.84-2-1.27-4.69-1.27-8.07v-39.95c0-1.81-1.47-3.28-3.28-3.28h-22.73c-1.81,0-3.28,1.47-3.28,3.28v40.11c0,8.76,1.45,16.02,4.35,21.77,2.9,5.76,7.31,10.06,13.22,12.91,5.91,2.85,13.3,4.28,22.17,4.28,13.3,0,23.25-3.22,29.84-9.66,6.6-6.44,9.9-16.21,9.9-29.3v-40.11c0-1.81-1.47-3.28-3.28-3.28h-22.72Z"/>
-        <path d="M816.83,230.78c-2.28,1.9-5.26,2.85-8.95,2.85-3.27,0-5.97-.68-8.07-2.06-2.12-1.37-3.64-3.38-4.6-6.02-.95-2.64-1.42-5.91-1.42-9.82,0-5.8,1.13-10.19,3.4-13.14,2.27-2.95,5.83-4.43,10.69-4.43,3.69,0,6.67.93,8.95,2.77,1.81,1.48,3.17,3.51,4.07,6.11.44,1.27,1.72,2.05,3.07,2.05h22.96c2.11,0,3.63-1.96,3.22-4.02-1.1-5.42-3.04-10.25-5.85-14.5-3.48-5.28-8.31-9.37-14.49-12.27-6.18-2.9-13.6-4.35-22.25-4.35-9.5,0-17.5,1.77-23.99,5.3-6.49,3.54-11.35,8.45-14.57,14.73-3.22,6.28-4.83,13.54-4.83,21.77s1.61,15.68,4.83,22.01c3.22,6.33,8.08,11.27,14.57,14.81,6.49,3.54,14.49,5.31,23.99,5.31,12.88,0,22.98-3.17,30.32-9.5,6.46-5.58,10.57-12.92,12.32-22.02.38-1.98-1.24-3.79-3.25-3.79h-22.99c-1.34,0-2.63.78-3.07,2.05-.9,2.6-2.26,4.66-4.07,6.18Z"/>
-        <path d="M934.19,182.88c-4.54-5.97-11.77-8.95-21.69-8.95-5.7,0-10.72,1.21-15.04,3.64-2.97,1.66-5.48,3.92-7.6,6.67v-37.9c0-1.81-1.47-3.28-3.28-3.28h-22.73c-1.81,0-3.28,1.47-3.28,3.28v106.65c0,1.81,1.47,3.28,3.28,3.28h22.73c1.81,0,3.28-1.47,3.28-3.28v-39.63c0-5.17.9-9,2.69-11.48,1.8-2.48,4.54-3.72,8.24-3.72s6.31,1.27,8.15,3.8,2.77,6.33,2.77,11.4v39.63c0,1.81,1.47,3.28,3.28,3.28h22.73c1.81,0,3.28-1.47,3.28-3.28v-43.27c0-11.93-2.27-20.87-6.81-26.84Z"/>
-        <path d="M566.29,238.86v-.11s0-59.95,0-59.95c0-1.81-1.47-3.28-3.28-3.28h-22.73c-1.81,0-3.28,1.47-3.28,3.28v6.7c-1.93-2.79-4.17-5.13-6.81-6.9-4.64-3.11-10.24-4.67-16.78-4.67-7.39,0-13.67,1.74-18.84,5.23-5.17,3.48-9.05,8.37-11.64,14.65-2.59,6.28-3.88,13.59-3.88,21.93s1.29,15.84,3.88,22.17c2.59,6.33,6.47,11.24,11.64,14.73,5.17,3.48,11.45,5.23,18.84,5.23,6.02,0,11.24-1.35,15.68-4.04,3.09-1.88,5.7-4.46,7.91-7.61v6.78c0,1.81,1.47,3.28,3.28,3.28h22.73c1.81,0,3.28-1.47,3.28-3.28v-14.12h0ZM533.35,229.04c-2.43,3.06-5.96,4.59-10.61,4.59-3.06,0-5.65-.68-7.76-2.06-2.11-1.37-3.7-3.38-4.75-6.02-1.06-2.64-1.58-5.91-1.58-9.82,0-5.7,1.19-10.06,3.56-13.06,2.37-3.01,5.88-4.51,10.53-4.51s8.18,1.51,10.61,4.51c2.43,3.01,3.64,7.36,3.64,13.06s-1.21,10.24-3.64,13.3Z"/>
-        <path d="M747.12,182.88c-4.54-5.97-11.77-8.95-21.69-8.95-6.23,0-11.56,1.4-15.99,4.19-2.52,1.59-4.66,3.67-6.5,6.13v-5.46c0-1.81-1.47-3.28-3.28-3.28h-22.73c-1.81,0-3.28,1.47-3.28,3.28v74.19c0,1.81,1.47,3.28,3.28,3.28h22.73c1.81,0,3.28-1.47,3.28-3.28v-43.03c.31-3.54,1.15-6.27,2.54-8.16,1.8-2.43,4.54-3.64,8.24-3.64s6.31,1.24,8.15,3.72c1.85,2.48,2.77,6.26,2.77,11.32v39.78c0,1.81,1.47,3.28,3.28,3.28h22.73c1.81,0,3.28-1.47,3.28-3.28v-43.27c0-11.93-2.27-20.87-6.81-26.84Z"/>
-      </g>
-    </svg>
-    <p style="font-size:13px;color:#555;margin-bottom:20px;line-height:1.5;">This page is private.<br>Please enter the password to continue.</p>
-    <input id="pw" type="password" placeholder="Password" onkeydown="if(event.key==='Enter')check()" style="width:100%;padding:10px 14px;border:1.5px solid #d8e8ec;border-radius:6px;font-size:14px;outline:none;box-sizing:border-box;margin-bottom:10px;" />
-    <p id="pw-err" style="color:#c0392b;font-size:11.5px;min-height:16px;margin-bottom:8px;"></p>
-    <button onclick="check()" style="width:100%;background:#0b6476;color:white;border:none;border-radius:6px;padding:11px;font-size:14px;font-weight:600;cursor:pointer;">Enter →</button>
-  </div>
-</div>
-<script>
-  function check() {
-    if (document.getElementById('pw').value === 'fundao') {
-      document.getElementById('gate').style.display = 'none';
-    } else {
-      document.getElementById('pw-err').textContent = 'Incorrect password. Please try again.';
-      document.getElementById('pw').value = '';
-      document.getElementById('pw').focus();
-    }
-  }
-</script>
-
-<!-- ── HEADER ── -->
-<header class="header">
-  <div class="header-logo">
-    <!-- LX Launch primary logo — white version for dark header -->
-    <svg viewBox="0 0 941 257.86" xmlns="http://www.w3.org/2000/svg" aria-label="LX Launch">
-      <g>
-        <g>
-          <g>
-            <path d="M6.2,0C2.78,0,0,2.78,0,6.2v189.78c0,33.91,27.59,61.5,61.5,61.5h69.43c2.13,0,4.09-1.08,5.24-2.88l28.78-45.63c1.23-1.94.82-4.3-.29-6.31-1.11-2.01-2.65-3.21-4.95-3.21h-69.14c-17.94,0-32.53-14.59-32.53-32.53V6.2C58.04,2.78,55.25,0,51.83,0H6.2Z"/>
-            <path d="M206.88,113.64c-2.41,4.82-4.12,9.91-3.97,14.95.14,4.7,1.69,9.86,3.9,14.01l70.83,112.57c1.17,1.45,2.96,2.31,4.83,2.31h55.93c2.33,0,5.21-1.65,6.12-3.79.89-2.09.55-4.38-.85-6.2l-62.49-99.42c-3.69-6.05-9.22-12.76-9.22-19.33s5.16-13.53,8.98-19.57l62.42-99.18c1.23-1.77,2.02-4.07,1.21-6.06C343.6,1.48,341.4,0,338.82,0h-56.94c-1.87,0-3.66.86-4.83,2.31l-70.17,111.33Z"/>
-          </g>
-          <path d="M112.56,0c-2.81,0-5.55,1.67-6.97,4.27-.53.96-1.6,3.44-.13,5.75,0,0,55.3,87.9,55.3,87.9,1.11,1.79,3.58,1.8,5.29,1.26,1.8-.57,2.74-2.16,3.65-3.74l13.03-20.67c14.01-22.15,14.08-34.48,6.5-46.5l-16.41-26.05c-.88-1.37-2.46-2.2-4.33-2.2,0,0-55.93-.02-55.94-.02Z"/>
-        </g>
-        <g>
-          <path d="M436.69,110.53c-4.65-2.32-8.13-6.02-10.45-11.08-2.32-5.07-3.48-11.61-3.48-19.63V3.29c0-1.81,1.47-3.28,3.28-3.28h22.72c1.81,0,3.28,1.47,3.28,3.28v76.68c0,2.11.26,3.8.79,5.07.53,1.27,1.42,2.19,2.69,2.77,1.27.58,3.01.87,5.23.87h5.11c1.81,0,3.28,1.47,3.28,3.28v18.77c0,1.81-1.47,3.28-3.28,3.28h-11.6c-7.07,0-12.93-1.16-17.58-3.48Z"/>
-          <path d="M519.68,86.83l-11.48,24.5c-.54,1.15-1.7,1.89-2.97,1.89h-22.51c-2.45,0-4.03-2.58-2.93-4.76l17.76-35.25c.47-.93.47-2.02,0-2.95l-16.52-33.04c-1.09-2.18.5-4.75,2.94-4.75h22.53c1.27,0,2.43.74,2.97,1.89l10.21,21.81c1.18,2.53,4.78,2.52,5.95-.01l10.09-21.78c.54-1.16,1.7-1.9,2.98-1.9h22.64c2.45,0,4.04,2.59,2.93,4.77l-16.77,33.01c-.48.94-.47,2.05,0,2.98l18.01,35.22c1.12,2.18-.47,4.78-2.92,4.78h-22.62c-1.28,0-2.44-.74-2.98-1.9l-11.36-24.48c-1.17-2.53-4.77-2.54-5.95-.01Z"/>
-          <path d="M436.69,253.58c-4.65-2.32-8.13-6.02-10.45-11.08-2.32-5.07-3.48-11.61-3.48-19.64v-76.52c0-1.81,1.47-3.28,3.28-3.28h22.72c1.81,0,3.28,1.47,3.28,3.28v76.68c0,2.11.26,3.8.79,5.07.53,1.27,1.42,2.19,2.69,2.77,1.27.58,3.01.87,5.23.87h5.11c1.81,0,3.28,1.47,3.28,3.28v18.77c0,1.81-1.47,3.28-3.28,3.28h-11.6c-7.07,0-12.93-1.16-17.58-3.48Z"/>
-          <path d="M633.43,175.51c-1.81,0-3.28,1.47-3.28,3.28v39.95c0,4.96-.9,8.5-2.69,10.61-1.79,2.11-4.38,3.17-7.76,3.17-2.21,0-4.09-.45-5.62-1.34-1.53-.9-2.72-2.35-3.56-4.36-.84-2-1.27-4.69-1.27-8.07v-39.95c0-1.81-1.47-3.28-3.28-3.28h-22.73c-1.81,0-3.28,1.47-3.28,3.28v40.11c0,8.76,1.45,16.02,4.35,21.77,2.9,5.76,7.31,10.06,13.22,12.91,5.91,2.85,13.3,4.28,22.17,4.28,13.3,0,23.25-3.22,29.84-9.66,6.6-6.44,9.9-16.21,9.9-29.3v-40.11c0-1.81-1.47-3.28-3.28-3.28h-22.72Z"/>
-          <path d="M816.83,230.78c-2.28,1.9-5.26,2.85-8.95,2.85-3.27,0-5.97-.68-8.07-2.06-2.12-1.37-3.64-3.38-4.6-6.02-.95-2.64-1.42-5.91-1.42-9.82,0-5.8,1.13-10.19,3.4-13.14,2.27-2.95,5.83-4.43,10.69-4.43,3.69,0,6.67.93,8.95,2.77,1.81,1.48,3.17,3.51,4.07,6.11.44,1.27,1.72,2.05,3.07,2.05h22.96c2.11,0,3.63-1.96,3.22-4.02-1.1-5.42-3.04-10.25-5.85-14.5-3.48-5.28-8.31-9.37-14.49-12.27-6.18-2.9-13.6-4.35-22.25-4.35-9.5,0-17.5,1.77-23.99,5.3-6.49,3.54-11.35,8.45-14.57,14.73-3.22,6.28-4.83,13.54-4.83,21.77s1.61,15.68,4.83,22.01c3.22,6.33,8.08,11.27,14.57,14.81,6.49,3.54,14.49,5.31,23.99,5.31,12.88,0,22.98-3.17,30.32-9.5,6.46-5.58,10.57-12.92,12.32-22.02.38-1.98-1.24-3.79-3.25-3.79h-22.99c-1.34,0-2.63.78-3.07,2.05-.9,2.6-2.26,4.66-4.07,6.18Z"/>
-          <path d="M934.19,182.88c-4.54-5.97-11.77-8.95-21.69-8.95-5.7,0-10.72,1.21-15.04,3.64-2.97,1.66-5.48,3.92-7.6,6.67v-37.9c0-1.81-1.47-3.28-3.28-3.28h-22.73c-1.81,0-3.28,1.47-3.28,3.28v106.65c0,1.81,1.47,3.28,3.28,3.28h22.73c1.81,0,3.28-1.47,3.28-3.28v-39.63c0-5.17.9-9,2.69-11.48,1.8-2.48,4.54-3.72,8.24-3.72s6.31,1.27,8.15,3.8,2.77,6.33,2.77,11.4v39.63c0,1.81,1.47,3.28,3.28,3.28h22.73c1.81,0,3.28-1.47,3.28-3.28v-43.27c0-11.93-2.27-20.87-6.81-26.84Z"/>
-          <path d="M566.29,238.86v-.11s0-59.95,0-59.95c0-1.81-1.47-3.28-3.28-3.28h-22.73c-1.81,0-3.28,1.47-3.28,3.28v6.7c-1.93-2.79-4.17-5.13-6.81-6.9-4.64-3.11-10.24-4.67-16.78-4.67-7.39,0-13.67,1.74-18.84,5.23-5.17,3.48-9.05,8.37-11.64,14.65-2.59,6.28-3.88,13.59-3.88,21.93s1.29,15.84,3.88,22.17c2.59,6.33,6.47,11.24,11.64,14.73,5.17,3.48,11.45,5.23,18.84,5.23,6.02,0,11.24-1.35,15.68-4.04,3.09-1.88,5.7-4.46,7.91-7.61v6.78c0,1.81,1.47,3.28,3.28,3.28h22.73c1.81,0,3.28-1.47,3.28-3.28v-14.12h0ZM533.35,229.04c-2.43,3.06-5.96,4.59-10.61,4.59-3.06,0-5.65-.68-7.76-2.06-2.11-1.37-3.7-3.38-4.75-6.02-1.06-2.64-1.58-5.91-1.58-9.82,0-5.7,1.19-10.06,3.56-13.06,2.37-3.01,5.88-4.51,10.53-4.51s8.18,1.51,10.61,4.51c2.43,3.01,3.64,7.36,3.64,13.06s-1.21,10.24-3.64,13.3Z"/>
-          <path d="M747.12,182.88c-4.54-5.97-11.77-8.95-21.69-8.95-6.23,0-11.56,1.4-15.99,4.19-2.52,1.59-4.66,3.67-6.5,6.13v-5.46c0-1.81-1.47-3.28-3.28-3.28h-22.73c-1.81,0-3.28,1.47-3.28,3.28v74.19c0,1.81,1.47,3.28,3.28,3.28h22.73c1.81,0,3.28-1.47,3.28-3.28v-43.03c.31-3.54,1.15-6.27,2.54-8.16,1.8-2.43,4.54-3.64,8.24-3.64s6.31,1.24,8.15,3.72c1.85,2.48,2.77,6.26,2.77,11.32v39.78c0,1.81,1.47,3.28,3.28,3.28h22.73c1.81,0,3.28-1.47,3.28-3.28v-43.27c0-11.93-2.27-20.87-6.81-26.84Z"/>
-        </g>
-      </g>
-    </svg>
-  </div>
-  <div class="header-contact">
-    <div><a href="https://www.lxlaunch.com" target="_blank">www.lxlaunch.com</a></div>
-    <div>vincent@lxlaunch.com</div>
-    <div>Lisbon, Portugal</div>
-  </div>
-</header>
-
-<!-- ── HERO BAND ── -->
-<div class="hero">
-  <div class="hero-label">Partnership &amp; Advisory Proposal</div>
-  <div class="hero-title">AgriTech &amp; Innovation Hub Fundão</div>
-  <div class="hero-sub">Bringing global venture expertise, cross-border networks, and AI-led innovation to Portugal's landmark tech hub.</div>
-</div>
-
-<!-- ── MAIN CONTENT ── -->
-<main class="content">
-
-  <!-- WHY VINCENT -->
-  <div class="section-title"><h2>Why LX Launch and Vincent</h2></div>
-  <div class="intro-box">
-    <strong>LX Launch is a new AI venture builder</strong> based in Lisbon, operating at the intersection of technology, investment, and cross-border expansion. Co-founded by Vincent Tan — a former BCG Project Leader, IDEO Portfolio Director, and VC co-founder with a Columbia Law J.D. — LX Launch brings rare depth across strategy, design thinking, venture capital, and data science / machine learning to the projects it partners with. For the AgriTech &amp; Innovation Hub Fundão, we offer not just advisory services, but can also act as an active partner with the networks, methodologies, and operational experience to help the hub attract capital, technology talent, and international partnerships from day one. Vincent is further backed by a <a href="#advisory" style="color:var(--teal-dark); font-weight:600; border-bottom:1px solid var(--teal);">curated expert advisory board</a> spanning finance, cloud architecture, product design, and governance — available to the hub on demand.
-  </div>
-
-  <div style="margin-top:20px;">
-    <div class="profile-name">Vincent Tan</div>
-    <div class="profile-role">Co-Founder &amp; Managing Director, LX Launch</div>
-    <div style="display:flex; align-items:center; gap:16px; margin-top:6px; margin-bottom:10px; flex-wrap:wrap;">
-      <a href="https://www.linkedin.com/in/vincent-youci-tan/" target="_blank" style="font-size:11.5px; display:flex; align-items:center; gap:4px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="#0b6476"><path d="M20.45 20.45h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.354V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        linkedin.com/in/vincent-youci-tan
-      </a>
-      <a href="https://github.com/vincent-schaye" target="_blank" style="font-size:11.5px; display:flex; align-items:center; gap:4px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="#0b6476"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-        github.com/vincent-schaye
-      </a>
-    </div>
-    <p style="font-size:12.5px; color:var(--gray); line-height:1.65;">
-      Vincent's career spans top-tier strategy consulting, venture capital fund management, design-led innovation, AI product leadership, and legal practice — an uncommon combination that makes him an effective partner for complex, multi-stakeholder innovation projects like the Hub Fundão.
-    </p>
-  </div>
-
-  <div style="margin-top: 16px;">
-
-    <!-- CURRENT -->
-    <div style="font-size:9.5px; text-transform:uppercase; letter-spacing:1.4px; color:var(--teal); font-weight:700; margin-bottom:4px; padding-bottom:4px; border-bottom:1px solid var(--border);">Current</div>
-
-    <div class="career-item" style="border-bottom:none;">
-      <div style="display:flex; gap:10px;">
-        <div class="career-dot" style="margin-top:4px; flex-shrink:0;"></div>
-        <div>
-          <div class="career-header" style="margin-bottom:4px;">
-            <span class="career-org"><a href="https://www.lxlaunch.com" target="_blank">LX Launch</a></span>
-            <span class="career-role">Co-Founder &amp; MD</span>
-          </div>
-          <p class="career-desc" style="padding-left:0;">
-            An AI venture builder that ideates, prototypes, and launches AI ventures in Lisbon. Beyond building its own ventures, LX Launch offers strategic advisory, cross-border deal facilitation, and innovation ecosystem development for founders, corporates, and public-private partnerships across Europe and APAC.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- OTHER RELEVANT EXPERIENCE -->
-    <div style="font-size:9.5px; text-transform:uppercase; letter-spacing:1.4px; color:var(--teal); font-weight:700; margin-top:18px; margin-bottom:4px; padding-bottom:4px; border-bottom:1px solid var(--border);">Other Relevant Experience</div>
-
-    <div class="career-item">
-      <div style="display:flex; gap:10px;">
-        <div class="career-dot" style="margin-top:4px; flex-shrink:0;"></div>
-        <div>
-          <div class="career-header" style="margin-bottom:4px;">
-            <span class="career-org"><a href="https://www.nextblue.com" target="_blank">Nextblue</a></span>
-            <span class="career-role">Co-Founder</span>
-          </div>
-          <p class="career-desc" style="padding-left:0;">
-            Co-founded a Tokyo-based venture capital firm focused on cross-border technology investment bridging Asia, Europe, and the Americas — building the transatlantic and transpacific deal flow networks that LX Launch continues to leverage today.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="career-item">
-      <div style="display:flex; gap:10px;">
-        <div class="career-dot" style="margin-top:4px; flex-shrink:0;"></div>
-        <div>
-          <div class="career-header" style="margin-bottom:4px;">
-            <span class="career-org"><a href="https://www.lolml.com" target="_blank">LOLML</a></span>
-            <span class="career-role">ML Engineer &amp; CPO</span>
-          </div>
-          <p class="career-desc" style="padding-left:0;">
-            Machine Learning Engineer and Chief Product Officer, applying AI and product strategy to build scalable, data-driven solutions. Brings hands-on technical depth to complement the strategic advisory practice — directly relevant to the Hub's data center and deep-tech ambitions.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="career-item">
-      <div style="display:flex; gap:10px;">
-        <div class="career-dot" style="margin-top:4px; flex-shrink:0;"></div>
-        <div>
-          <div class="career-header" style="margin-bottom:4px;">
-            <span class="career-org"><a href="https://www.bcg.com" target="_blank">Boston Consulting Group</a></span>
-            <span class="career-role">Project Leader</span>
-          </div>
-          <p class="career-desc" style="padding-left:0;">
-            Advised multinationals on healthcare strategy, business development, distributor relationships, pricing, and organizational design. Proposed and secured funding for Takeda Pharmaceuticals' biotech spinout program, establishing the Shonan Health Innovation Research Park.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="career-item" style="border-bottom:none;">
-      <div style="display:flex; gap:10px;">
-        <div class="career-dot" style="margin-top:4px; flex-shrink:0;"></div>
-        <div>
-          <div class="career-header" style="margin-bottom:4px;">
-            <span class="career-org"><a href="https://www.ideo.com" target="_blank">IDEO</a> / <a href="https://www.d4v.com" target="_blank">D4V (Design for Ventures)</a></span>
-            <span class="career-role">Portfolio Director</span>
-          </div>
-          <p class="career-desc" style="padding-left:0;">
-            Recruited to the global design thinking pioneer to establish its VC arm, D4V. Raised a $50M fund with full lifecycle responsibility: LP fundraising &amp; management, investment committee, startup sourcing, capital deployment, portfolio management, founder mentoring, and prototype sprints. Directly relevant to the Hub's venture programming and startup support infrastructure.
-          </p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- CREDENTIALS -->
-  <div class="section-spacer"></div>
-  <div class="section-title"><h2>Credentials &amp; Qualifications</h2></div>
-  <div class="cred-grid">
-    <div class="cred-badge">
-      <div class="cred-label">J.D., Columbia Law School</div>
-      <div class="cred-detail">Stone Scholar &nbsp;|&nbsp; New York Bar, admitted 2011</div>
-    </div>
-    <div class="cred-badge">
-      <div class="cred-label">CAIA Charterholder</div>
-      <div class="cred-detail">Chartered Alternative Investment Analyst, 2012</div>
-    </div>
-    <div class="cred-badge">
-      <div class="cred-label">Advanced Design Thinking</div>
-      <div class="cred-detail">IDEO Certificate, 2020</div>
-    </div>
-    <div class="cred-badge">
-      <div class="cred-label">Languages</div>
-      <div class="cred-detail">English (Native) &nbsp;|&nbsp; Japanese (N1) &nbsp;|&nbsp; German (B1)</div>
-    </div>
-  </div>
-
-  <!-- SERVICES -->
-  <div class="section-spacer"></div>
-  <div class="section-title"><h2>How We Can Support the Hub</h2></div>
-  <div class="services-grid">
-    <div class="service-card">
-      <h3>Innovation Strategy &amp; Ecosystem Design</h3>
-      <p>Applying BCG and IDEO methodologies to design the hub's accelerator framework, startup engagement model, and corporate partnership strategy.</p>
-    </div>
-    <div class="service-card">
-      <h3>Investment &amp; Fund Structuring</h3>
-      <p>Drawing on $50M+ VC fund management experience: investment vehicle design, LP fundraising strategy, deal flow pipeline, and portfolio governance.</p>
-    </div>
-    <div class="service-card">
-      <h3>Cross-Border Partnerships</h3>
-      <p>Active networks across the US, Japan, and Europe to facilitate technology transfer, international co-investment, and market expansion for hub tenants.</p>
-    </div>
-    <div class="service-card">
-      <h3>AI &amp; Deep Tech Advisory</h3>
-      <p>Hands-on ML engineering background applied to the hub's data center and AgriTech digital transformation agenda, including AI product strategy and tooling.</p>
-    </div>
-    <div class="service-card">
-      <h3>Legal &amp; Regulatory Navigation</h3>
-      <p>J.D.-qualified counsel perspective on corporate structuring, IP strategy, cross-jurisdictional compliance, and multi-stakeholder governance frameworks.</p>
-    </div>
-    <div class="service-card">
-      <h3>Design Sprints &amp; Prototyping</h3>
-      <p>Facilitation of IDEO-style design sprints and rapid prototyping for hub tenants — accelerating concept-to-market timelines for AgriTech and deep tech ventures.</p>
-    </div>
-  </div>
-
-  <!-- ADVISORY BOARD -->
-  <div class="section-spacer"></div>
-  <div class="section-title"><h2>Expert Advisory Board</h2></div>
-  <div class="advisory-box" id="advisory">
-    <h3>LX Launch Expert Advisory Board</h3>
-    <p>
-      Vincent is supported by a curated board of senior practitioners with complementary expertise across finance, cloud architecture, product design, governance, and international operations. Collectively they bring executive leadership experience spanning the US, EU, APAC, and ANZ markets — available to the Hub on an advisory or fractional basis.
-    </p>
-    <div class="advisory-tags">
-      <span class="advisory-tag">Fractional CFO &amp; M&amp;A</span>
-      <span class="advisory-tag">Cloud Architecture (AWS / Azure)</span>
-      <span class="advisory-tag">UX &amp; Product Design</span>
-      <span class="advisory-tag">DevSecOps &amp; Governance</span>
-      <span class="advisory-tag">L&amp;D &amp; Talent Strategy</span>
-      <span class="advisory-tag">Real Estate &amp; Investment</span>
-      <span class="advisory-tag">GDPR / PCI Compliance</span>
-      <span class="advisory-tag">Entrepreneurship &amp; Brand</span>
-    </div>
-    <p style="margin-top: 12px; font-size:11px; opacity:0.85;">
-      → <a href="https://docs.google.com/document/d/1lXI83Wj9fDFRWIj8w7wVQ8vD7sRAPpq2YymRK_HdQO0/edit?usp=sharing" target="_blank" style="color:rgba(255,255,255,0.9); border-bottom-color:rgba(255,255,255,0.35); font-weight:600;">View full board profiles here</a>
-    </p>
-  </div>
-
-</main>
-
-<!-- ── FOOTER ── -->
-<footer class="footer">
-  <span>LX Launch &nbsp;|&nbsp; Lisbon, Portugal &nbsp;|&nbsp; <a href="https://www.lxlaunch.com" target="_blank">www.lxlaunch.com</a> &nbsp;|&nbsp; Confidential</span>
-  <a href="mailto:vincent@lxlaunch.com" class="footer-cta">Get in Touch →</a>
-</footer>
-
+<p class="p1"><span class="s1">This page is private.</span><span class="s2"><br>
+</span><span class="s1">Please enter the password to continue.</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"><b>Enter →</b><b></b></span></p>
+<p class="p4"><span class="s2"></span><br></p>
+<p class="p5"><span class="s3"><a href="https://www.lxlaunch.com/">www.lxlaunch.com<span class="s2"></span></a></span></p>
+<p class="p5"><span class="s3">vincent@lxlaunch.com</span></p>
+<p class="p5"><span class="s3">Lisbon, Portugal</span></p>
+<p class="p6"><span class="s4">PARTNERSHIP &amp; ADVISORY PROPOSAL</span></p>
+<p class="p7"><span class="s4"><b>AgriTech &amp; Innovation Hub Fundão</b><b></b></span></p>
+<p class="p8"><span class="s4">Bringing global venture expertise, cross-border networks, and AI-led innovation to Portugal's landmark tech hub.</span></p>
+<h2 style="margin: 0.0px 0.0px 0.0px 0.0px; font: 10.5px 'Helvetica Neue'; color: #0c3a46; -webkit-text-stroke: #0c3a46"><span class="s2"><b>WHY LX LAUNCH AND VINCENT</b></span></h2>
+<p class="p10"><span class="s5"><b>LX Launch is a new AI venture builder</b></span><span class="s2"> based in Lisbon, operating at the intersection of technology, investment, and cross-border expansion. Co-founded and led by Vincent Tan — a former BCG Project Leader, IDEO Portfolio Director, and Venture Capital co-founder with a background in data science/ AI — LX Launch brings rare depth across strategy, design thinking, tech investing, and applied AI to the projects it partners with. For the AgriTech &amp; Innovation Hub Fundão, collaboration could evolve beyond simple advisory services, but also as a synergistic active partner with the networks, methodologies, and operational experience to help the hub attract capital, technology talent, and international partnerships from day one. Vincent is further backed by a </span><span class="s6"><b>curated expert advisory board</b></span><span class="s2"> spanning finance, cloud architecture, product design, and governance — available to the hub on demand.</span></p>
+<p class="p11"><span class="s2"><b>Vincent Tan</b></span></p>
+<p class="p12"><span class="s2"><b>CO-FOUNDER &amp; MANAGING DIRECTOR, LX LAUNCH</b></span></p>
+<p class="p13"><span class="s2"><a href="https://www.linkedin.com/in/vincent-youci-tan/"></a></span><br></p>
+<p class="p14"><span class="s2"><a href="https://www.linkedin.com/in/vincent-youci-tan/">linkedin.com/in/vincent-youci-tan<span class="s7"></span></a></span></p>
+<p class="p13"><span class="s2"><a href="https://github.com/vincent-schaye"></a></span><br></p>
+<p class="p14"><span class="s2"><a href="https://github.com/vincent-schaye">github.com/vincent-schaye<span class="s7"></span></a></span></p>
+<p class="p15"><span class="s2">Vincent's career spans top-tier strategy consulting, venture capital fund management, design-led innovation, AI product leadership, and legal practice — an uncommon combination that makes him an effective partner for complex, multi-stakeholder innovation projects like the Hub Fundão.</span></p>
+<p class="p16"><span class="s2"><b>CURRENT</b></span></p>
+<p class="p17"><span class="s2"></span><br></p>
+<p class="p18"><span class="s2"><a href="https://www.lxlaunch.com/"><b>LX Launch</b><span class="s8"><b></b></span></a></span></p>
+<p class="p19"><span class="s2">Co-Founder &amp; MD</span></p>
+<p class="p20"><span class="s2">An AI venture builder that ideates, prototypes, and launches AI ventures in Lisbon. Beyond building its own ventures, LX Launch offers strategic advisory, cross-border deal facilitation, and innovation ecosystem development for founders, corporates, and public-private partnerships across Europe and APAC.</span></p>
+<p class="p16"><span class="s2"><b>OTHER RELEVANT EXPERIENCE</b></span></p>
+<p class="p17"><span class="s2"></span><br></p>
+<p class="p18"><span class="s2"><a href="https://www.nextblue.com/"><b>Nextblue</b><span class="s8"><b></b></span></a></span></p>
+<p class="p19"><span class="s2">Co-Founder</span></p>
+<p class="p20"><span class="s2">Co-founded a Tokyo-based venture capital firm focused on cross-border technology investment bridging Asia, Europe, and the Americas — building the transatlantic and transpacific deal flow networks that LX Launch continues to leverage today.</span></p>
+<p class="p17"><span class="s2"></span><br></p>
+<p class="p18"><span class="s2"><a href="https://www.lolml.com/"><b>LOLML</b><span class="s8"><b></b></span></a></span></p>
+<p class="p19"><span class="s2">ML Engineer &amp; CPO</span></p>
+<p class="p20"><span class="s2">Machine Learning Engineer and Chief Product Officer, applying AI and product strategy to build scalable, data-driven solutions. Brings hands-on technical depth to complement the strategic advisory practice — directly relevant to the Hub's data center and deep-tech ambitions.</span></p>
+<p class="p17"><span class="s2"></span><br></p>
+<p class="p18"><span class="s2"><a href="https://www.bcg.com/"><b>Boston Consulting Group</b><span class="s8"><b></b></span></a></span></p>
+<p class="p19"><span class="s2">Project Leader</span></p>
+<p class="p20"><span class="s2">Advised multinationals on healthcare strategy, business development, distributor relationships, pricing, and organizational design. Proposed and secured funding for Takeda Pharmaceuticals' biotech spinout program, establishing the Shonan Health Innovation Research Park.</span></p>
+<p class="p17"><span class="s2"></span><br></p>
+<p class="p18"><span class="s2"><a href="https://www.ideo.com/"><b>IDEO</b></a><b> / </b><a href="https://www.d4v.com/"><span class="s8"><b>D4V (Design for Ventures)</b><b></b></span></a></span></p>
+<p class="p19"><span class="s2">Portfolio Director</span></p>
+<p class="p20"><span class="s2">Recruited to the global design thinking pioneer to establish its VC arm, D4V. Raised a $50M fund with full lifecycle responsibility: LP fundraising &amp; management, investment committee, startup sourcing, capital deployment, portfolio management, founder mentoring, and prototype sprints. Directly relevant to the Hub's venture programming and startup support infrastructure.</span></p>
+<p class="p4"><span class="s2"></span><br></p>
+<h2 style="margin: 0.0px 0.0px 0.0px 0.0px; font: 10.5px 'Helvetica Neue'; color: #0c3a46; -webkit-text-stroke: #0c3a46"><span class="s2"><b>CREDENTIALS &amp; QUALIFICATIONS</b></span></h2>
+<p class="p21"><span class="s9"><b>J.D., Columbia Law School</b><b></b></span></p>
+<p class="p22"><span class="s9">Stone Scholar  |  New York Bar, admitted 2011</span></p>
+<p class="p21"><span class="s9"><b>CAIA Charterholder</b><b></b></span></p>
+<p class="p22"><span class="s9">Chartered Alternative Investment Analyst, 2012</span></p>
+<p class="p21"><span class="s9"><b>Advanced Design Thinking</b><b></b></span></p>
+<p class="p22"><span class="s9">IDEO Certificate, 2020</span></p>
+<p class="p21"><span class="s9"><b>Languages</b><b></b></span></p>
+<p class="p22"><span class="s9">English (Native)  |  Japanese (N1)  |  German (B1)</span></p>
+<p class="p4"><span class="s2"></span><br></p>
+<h2 style="margin: 0.0px 0.0px 0.0px 0.0px; font: 10.5px 'Helvetica Neue'; color: #0c3a46; -webkit-text-stroke: #0c3a46"><span class="s2"><b>HOW WE CAN SUPPORT THE HUB</b></span></h2>
+<h3 style="margin: 0.0px 0.0px 6.0px 0.0px; font: 12.5px 'Helvetica Neue'; color: #0c3a46; -webkit-text-stroke: #0c3a46"><span class="s10"><b>Innovation Strategy &amp; Ecosystem Design</b><b></b></span></h3>
+<p class="p24"><span class="s10">Applying BCG and IDEO methodologies to design the hub's accelerator framework, startup engagement model, and corporate partnership strategy.</span></p>
+<h3 style="margin: 0.0px 0.0px 6.0px 0.0px; font: 12.5px 'Helvetica Neue'; color: #0c3a46; -webkit-text-stroke: #0c3a46"><span class="s10"><b>Investment &amp; Fund Structuring</b><b></b></span></h3>
+<p class="p24"><span class="s10">Drawing on $50M+ VC fund management experience: investment vehicle design, LP fundraising strategy, deal flow pipeline, and portfolio governance.</span></p>
+<h3 style="margin: 0.0px 0.0px 6.0px 0.0px; font: 12.5px 'Helvetica Neue'; color: #0c3a46; -webkit-text-stroke: #0c3a46"><span class="s10"><b>Cross-Border Partnerships</b><b></b></span></h3>
+<p class="p24"><span class="s10">Active networks across the US, Japan, and Europe to facilitate technology transfer, international co-investment, and market expansion for hub tenants.</span></p>
+<h3 style="margin: 0.0px 0.0px 6.0px 0.0px; font: 12.5px 'Helvetica Neue'; color: #0c3a46; -webkit-text-stroke: #0c3a46"><span class="s10"><b>AI &amp; Deep Tech Advisory</b><b></b></span></h3>
+<p class="p24"><span class="s10">Hands-on ML engineering background applied to the hub's data center and AgriTech digital transformation agenda, including AI product strategy and tooling.</span></p>
+<h3 style="margin: 0.0px 0.0px 6.0px 0.0px; font: 12.5px 'Helvetica Neue'; color: #0c3a46; -webkit-text-stroke: #0c3a46"><span class="s10"><b>Legal &amp; Regulatory Navigation</b><b></b></span></h3>
+<p class="p24"><span class="s10">J.D.-qualified counsel perspective on corporate structuring, IP strategy, cross-jurisdictional compliance, and multi-stakeholder governance frameworks.</span></p>
+<h3 style="margin: 0.0px 0.0px 6.0px 0.0px; font: 12.5px 'Helvetica Neue'; color: #0c3a46; -webkit-text-stroke: #0c3a46"><span class="s10"><b>Design Sprints &amp; Prototyping</b><b></b></span></h3>
+<p class="p24"><span class="s10">Facilitation of IDEO-style design sprints and rapid prototyping for hub tenants — accelerating concept-to-market timelines for AgriTech and deep tech ventures.</span></p>
+<p class="p4"><span class="s2"></span><br></p>
+<h2 style="margin: 0.0px 0.0px 0.0px 0.0px; font: 10.5px 'Helvetica Neue'; color: #0c3a46; -webkit-text-stroke: #0c3a46"><span class="s2"><b>EXPERT ADVISORY BOARD</b></span></h2>
+<p class="p25"><span class="s3"><b>LX Launch Expert Advisory Board</b><b></b></span></p>
+<p class="p26"><span class="s3">Vincent is supported by a curated board of senior practitioners with complementary expertise across finance, cloud architecture, product design, governance, and international operations. Collectively they bring executive leadership experience spanning the US, EU, APAC, and ANZ markets — available to the Hub on an advisory or fractional basis.</span></p>
+<p class="p27"><span class="s2">Fractional CFO &amp; M&amp;A</span></p>
+<p class="p27"><span class="s2">Cloud Architecture (AWS / Azure)</span></p>
+<p class="p27"><span class="s2">UX &amp; Product Design</span></p>
+<p class="p27"><span class="s2">DevSecOps &amp; Governance</span></p>
+<p class="p27"><span class="s2">L&amp;D &amp; Talent Strategy</span></p>
+<p class="p27"><span class="s2">Real Estate &amp; Investment</span></p>
+<p class="p27"><span class="s2">GDPR / PCI Compliance</span></p>
+<p class="p27"><span class="s2">Entrepreneurship &amp; Brand</span></p>
+<p class="p28"><span class="s11">→ <a href="https://docs.google.com/document/d/1lXI83Wj9fDFRWIj8w7wVQ8vD7sRAPpq2YymRK_HdQO0/edit?usp=sharing"><span class="s12"><b>View full board profiles here</b><b></b></span></a></span></p>
+<p class="p29"><span class="s4">LX Launch  |  Lisbon, Portugal  |  <a href="https://www.lxlaunch.com/"><span class="s13">www.lxlaunch.com</span></a>  |  Confidential</span></p>
+<p class="p30"><span class="s2"><a href="mailto:vincent@lxlaunch.com"><b>Get in Touch →</b><span class="s14"><b></b></span></a></span></p>
 </body>
 </html>
